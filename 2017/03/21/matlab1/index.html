@@ -93,7 +93,7 @@
 <meta property="og:url" content="https://starrysky1211.github.io/2017/03/21/matlab1/index.html">
 <meta property="og:site_name" content="猫先生">
 <meta property="og:description" content="数字图像处理——MatLab学习日记（一）参考书：《数字图像处理及MATLAB实现》">
-<meta property="og:updated_time" content="2017-03-21T03:03:43.000Z">
+<meta property="og:updated_time" content="2017-03-21T06:21:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数字图像处理——MatLab学习日记（一）">
 <meta name="twitter:description" content="数字图像处理——MatLab学习日记（一）参考书：《数字图像处理及MATLAB实现》">
@@ -456,6 +456,51 @@
 <p> 其中$s(t)=\frac{\sin (2\pi \omega t)}{2\pi \omega t}$</p>
 </li>
 </ol>
+<p>采样间隔越大，图像质量越差，甚至出现马赛克效应。</p>
+<ol>
+<li><p>量化<br> 采样后的灰度仍然是连续的，不能被计算机处理，因此需要将像素灰度转化成离散的整数值，这个过程叫做量化。</p>
+<p> 灰度级数$G$表示一幅数字图像中不同灰度值的个数：</p>
+<p> eg:$G=256=2^{8}$即G取值在0～255之间，成为8bit量化。一般来说&gt;=6bit的量化在视觉上就可以令人满意了。</p>
+<p> 缺陷：</p>
+<ul>
+<li><p>假轮廓：</p>
+<p>  量化等级少，层次欠丰富。</p>
+<p>  重点情况： <strong>缓变图像</strong> 应采取细量化，粗采样。</p>
+</li>
+<li><p>模糊（混叠）</p>
+<p>  采样不够精细，未能重现细节</p>
+<p>  重点情况： <strong>细节丰富图像</strong> 应采取细采样，粗量化。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="像素间的基本关系"><a href="#像素间的基本关系" class="headerlink" title="像素间的基本关系"></a>像素间的基本关系</h3><ol>
+<li><p>相邻像素</p>
+<p> 与p(x,y)像素相邻的4个像素组成的邻域使用$N_{4}(p)$表示，即(x+1,y)、(x-1,y)、(x,y+1)、(x,y-1)。</p>
+<p> 而p的四个对角相邻的像素(x+1,y+1)、(x-1,y-1)、(x+1,y-1)、(x-1,y+1)则用$N_{D}(p)$表示。</p>
+<p> 两者的并集，与p相邻的所有8个像素用$N_{8}(p)$表示。</p>
+<p> <em>notice</em>：当p位于图像边界时，这三个集合中的某些点位于数字图像的外部。</p>
+</li>
+<li><p>邻接性和连通性</p>
+<p> 想要确定两个像素是否连通，要满足两个条件：</p>
+<ul>
+<li>两个像素相邻</li>
+<li><p>两个像素灰度满足特定的相似性（一般来说就是灰度值相等）</p>
+<p><em>邻接补充</em>：</p>
+</li>
+<li><p>4邻接</p>
+</li>
+<li>8邻接</li>
+<li><p>m邻接：</p>
+<ul>
+<li>q在$N_{4}(p)$集合中</li>
+<li>或q在$N<em>{D}(p)$集合中，且$N</em>{D}(p)\bigcap N_{D}(p)$集合中没有v值的像素（这里假定q像素的值为v）</li>
+</ul>
+<p><em>m邻接又被称为混合邻接，主要是为了消除8邻接中产生的二义性，8邻接定义中一个呈直角三角形分布的相连像素点，对角的两个点会有两种连通的方式，混合邻接可以避免这一点</em></p>
+</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
@@ -708,7 +753,11 @@
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="https://www.jeyzhang.com" title="jeyzhang" target="_blank">jeyzhang</a>
+                  <a href="http://www.jeyzhang.com" title="jeyzhang" target="_blank">jeyzhang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.tianhao.site" title="th" target="_blank">th</a>
                 </li>
               
             </ul>
@@ -730,7 +779,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数字图像处理——MatLab学习日记（一）"><span class="nav-number">1.</span> <span class="nav-text">数字图像处理——MatLab学习日记（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考书：《数字图像处理及MATLAB实现》"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">参考书：《数字图像处理及MATLAB实现》</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一部分：主要研究内容"><span class="nav-number">1.1.</span> <span class="nav-text">第一部分：主要研究内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二部分：数字图像基础知识"><span class="nav-number">1.2.</span> <span class="nav-text">第二部分：数字图像基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图像的获取"><span class="nav-number">1.2.1.</span> <span class="nav-text">图像的获取</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数字图像处理——MatLab学习日记（一）"><span class="nav-number">1.</span> <span class="nav-text">数字图像处理——MatLab学习日记（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考书：《数字图像处理及MATLAB实现》"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">参考书：《数字图像处理及MATLAB实现》</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一部分：主要研究内容"><span class="nav-number">1.1.</span> <span class="nav-text">第一部分：主要研究内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二部分：数字图像基础知识"><span class="nav-number">1.2.</span> <span class="nav-text">第二部分：数字图像基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图像的获取"><span class="nav-number">1.2.1.</span> <span class="nav-text">图像的获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#像素间的基本关系"><span class="nav-number">1.2.2.</span> <span class="nav-text">像素间的基本关系</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
