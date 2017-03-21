@@ -93,7 +93,7 @@
 <meta property="og:url" content="https://starrysky1211.github.io/2017/03/21/matlab1/index.html">
 <meta property="og:site_name" content="猫先生">
 <meta property="og:description" content="数字图像处理——MatLab学习日记（一）参考书：《数字图像处理及MATLAB实现》">
-<meta property="og:updated_time" content="2017-03-21T06:52:32.000Z">
+<meta property="og:updated_time" content="2017-03-21T06:55:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数字图像处理——MatLab学习日记（一）">
 <meta name="twitter:description" content="数字图像处理——MatLab学习日记（一）参考书：《数字图像处理及MATLAB实现》">
@@ -476,29 +476,28 @@
 </ol>
 <h3 id="像素间的基本关系"><a href="#像素间的基本关系" class="headerlink" title="像素间的基本关系"></a>像素间的基本关系</h3><ol>
 <li><p>相邻像素</p>
-<p> 与p(x,y)像素相邻的4个像素组成的邻域使用$N_{4}(p)$表示，即(x+1,y)、(x-1,y)、(x,y+1)、(x,y-1)。</p>
-<p> 而p的四个对角相邻的像素(x+1,y+1)、(x-1,y-1)、(x+1,y-1)、(x-1,y+1)则用$N_{D}(p)$表示。</p>
-<p> 两者的并集，与p相邻的所有8个像素用$N_{8}(p)$表示。</p>
-<p> <em>notice</em>：当p位于图像边界时，这三个集合中的某些点位于数字图像的外部。</p>
+<p>与p(x,y)像素相邻的4个像素组成的邻域使用$N_{4}(p)$表示，即(x+1,y)、(x-1,y)、(x,y+1)、(x,y-1)。</p>
+<p>而p的四个对角相邻的像素(x+1,y+1)、(x-1,y-1)、(x+1,y-1)、(x-1,y+1)则用$N_{D}(p)$表示。</p>
+<p>两者的并集，与p相邻的所有8个像素用$N_{8}(p)$表示。</p>
+<p><em>notice</em>：当p位于图像边界时，这三个集合中的某些点位于数字图像的外部。</p>
 </li>
 <li><p>邻接性和连通性</p>
-<p> 想要确定两个像素是否连通，要满足两个条件：</p>
+<p>想要确定两个像素是否连通，要满足两个条件：</p>
 <ul>
 <li>两个像素相邻</li>
-<li><p>两个像素灰度满足特定的相似性（一般来说就是灰度值相等）</p>
+<li>两个像素灰度满足特定的相似性（一般来说就是灰度值相等）</li>
+</ul>
 <p><em>邻接补充</em>：</p>
-</li>
-<li><p>4邻接</p>
-</li>
+<ol>
+<li>4邻接</li>
 <li>8邻接</li>
-<li><p>m邻接：</p>
-<ul>
+<li>m邻接：<ol>
 <li>q在$N_{4}(p)$集合中</li>
-<li>或这里假定q像素的值为v<br>$$g(t) =\sum<em>{t=-\infty }^{\infty }g(iT)s(t-iT)$$<br>$$q \in N</em>{D}(p)\wedge  q={v}\nsubseteq N<em>{D}(p)\cap N</em>{D}(p)$$</li>
-</ul>
-<p><em>m邻接又被称为混合邻接，主要是为了消除8邻接中产生的二义性，8邻接定义中一个呈直角三角形分布的相连像素点，对角的两个点会有两种连通的方式，混合邻接可以避免这一点</em></p>
+<li>或这里假定q像素的值为v<br>$$q \in N<em>{D}(p)\wedge  q={v}\nsubseteq N</em>{D}(p)\cap N_{D}(p)$$</li>
+</ol>
 </li>
-</ul>
+</ol>
+<p><em>m邻接又被称为混合邻接，主要是为了消除8邻接中产生的二义性，8邻接定义中一个呈直角三角形分布的相连像素点，对角的两个点会有两种连通的方式，混合邻接可以避免这一点</em></p>
 </li>
 </ol>
 
