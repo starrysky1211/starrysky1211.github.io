@@ -93,7 +93,7 @@
 <meta property="og:url" content="https://starrysky1211.github.io/2017/03/21/matlab1/index.html">
 <meta property="og:site_name" content="猫先生">
 <meta property="og:description" content="数字图像处理——MatLab学习日记（一）参考书：《数字图像处理及MATLAB实现》">
-<meta property="og:updated_time" content="2017-03-21T02:01:59.000Z">
+<meta property="og:updated_time" content="2017-03-21T02:40:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数字图像处理——MatLab学习日记（一）">
 <meta name="twitter:description" content="数字图像处理——MatLab学习日记（一）参考书：《数字图像处理及MATLAB实现》">
@@ -449,7 +449,13 @@
 <h2 id="第二部分：数字图像基础知识"><a href="#第二部分：数字图像基础知识" class="headerlink" title="第二部分：数字图像基础知识"></a>第二部分：数字图像基础知识</h2><p>$$I=f(x,y,z,lambda，t)$$</p>
 <p>其中x，y，z为空间坐标，t为时间，lambda为波长（颜色），I是光强。</p>
 <p>可知对于静态单色平面图像，其表达式为：<br>$$I = I[x,y]$$</p>
-<p>对彩色图像，使用RGB分量表示一个像素点</p>
+<p>对彩色图像，可使用RGB分量表示一个像素点</p>
+<h3 id="图像的获取"><a href="#图像的获取" class="headerlink" title="图像的获取"></a>图像的获取</h3><ol>
+<li><p>采样</p>
+<p> <em>采样间隔</em> 和 <em>采样孔径大小</em> 两个重要参数确定了图像的空间分辨率。根据抽样定理，把包含于一维信号$g(s)$中的频率限制在$\omega$以下时，采用间距$T=1/(2\omega)$进行采样的抽样值$g(iT)$，可以完全将$g(t)$恢复</p>
+<p> $$g(t) =\sum_{t=-\infty }^{\infty }g(iT)s(t-iT)$$</p>
+</li>
+</ol>
 
       
     </div>
@@ -710,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数字图像处理——MatLab学习日记（一）"><span class="nav-number">1.</span> <span class="nav-text">数字图像处理——MatLab学习日记（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考书：《数字图像处理及MATLAB实现》"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">参考书：《数字图像处理及MATLAB实现》</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一部分：主要研究内容"><span class="nav-number">1.1.</span> <span class="nav-text">第一部分：主要研究内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二部分：数字图像基础知识"><span class="nav-number">1.2.</span> <span class="nav-text">第二部分：数字图像基础知识</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数字图像处理——MatLab学习日记（一）"><span class="nav-number">1.</span> <span class="nav-text">数字图像处理——MatLab学习日记（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考书：《数字图像处理及MATLAB实现》"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">参考书：《数字图像处理及MATLAB实现》</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一部分：主要研究内容"><span class="nav-number">1.1.</span> <span class="nav-text">第一部分：主要研究内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二部分：数字图像基础知识"><span class="nav-number">1.2.</span> <span class="nav-text">第二部分：数字图像基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图像的获取"><span class="nav-number">1.2.1.</span> <span class="nav-text">图像的获取</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
