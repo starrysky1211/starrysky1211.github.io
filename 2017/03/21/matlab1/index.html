@@ -93,10 +93,12 @@
 <meta property="og:url" content="https://starrysky1211.github.io/2017/03/21/matlab1/index.html">
 <meta property="og:site_name" content="猫先生">
 <meta property="og:description" content="数字图像处理——MatLab学习日记（一）参考书：《数字图像处理及MATLAB实现》">
-<meta property="og:updated_time" content="2017-03-21T06:55:43.000Z">
+<meta property="og:image" content="http://p1.bpimg.com/567571/bb7a0bdcce57d238.png">
+<meta property="og:updated_time" content="2017-03-22T03:04:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数字图像处理——MatLab学习日记（一）">
 <meta name="twitter:description" content="数字图像处理——MatLab学习日记（一）参考书：《数字图像处理及MATLAB实现》">
+<meta name="twitter:image" content="http://p1.bpimg.com/567571/bb7a0bdcce57d238.png">
 
 
 
@@ -493,13 +495,23 @@
 <li>8邻接</li>
 <li>m邻接：<ol>
 <li>q在$N_{4}(p)$集合中</li>
-<li>或这里假定q像素的值为v<br>$$q \in N<em>{D}(p)\wedge  q={v}\nsubseteq N</em>{D}(p)\cap N_{D}(p)$$</li>
+<li>或这里假定q像素的值为v<br><img src="http://p1.bpimg.com/567571/bb7a0bdcce57d238.png" alt=""></li>
 </ol>
 </li>
 </ol>
 <p><em>m邻接又被称为混合邻接，主要是为了消除8邻接中产生的二义性，8邻接定义中一个呈直角三角形分布的相连像素点，对角的两个点会有两种连通的方式，混合邻接可以避免这一点</em></p>
+<p>由此可以引出边缘，假设从p(x,y)到q(s,t)可以寻到一条通路，若$x=s \wedge y=t$就可以得知一个整体的边缘被勾勒出来了，即一个有限区域内形成的闭合通路。</p>
+</li>
+<li><p>距离</p>
+<p> 对距离的测量需要定义一个度量函数：对三个给定像素p、q、r，其坐标为(x,y)、(s,t)、(u,v)，则：</p>
+<p> 1) D(p,q)&gt;=0 (当且仅当p=q时，D=0)</p>
+<p> 2) D(p,q)=D(q,p)</p>
+<p> 3) D(p,r)&lt;=D(p,q)+D(q,r)</p>
+<p> 时，可称D为距离函数或度量。</p>
 </li>
 </ol>
+<hr>
+<p>今日到此结束，明日再见。</p>
 
       
     </div>
