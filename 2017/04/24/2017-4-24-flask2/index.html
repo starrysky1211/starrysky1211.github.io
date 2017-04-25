@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-4-24/30432686-file_1493006980348_abb3.png">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-4-24/18034444-file_1493007684270_10166.png">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-4-24/33787237-file_1493007841756_fca9.png">
-<meta property="og:updated_time" content="2017-04-25T13:19:19.000Z">
+<meta property="og:updated_time" content="2017-04-25T13:20:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flask学习笔记(二)">
 <meta name="twitter:image" content="http://onetvn05k.bkt.clouddn.com/17-4-24/59723385-file_1493006493776_1856c.jpg">
@@ -464,7 +464,7 @@
 <p>甚至还可以模块化，将宏保存在单独的文件中，使用如下语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;% import &apos;macros.html&apos; as macros %&#125;</div><div class="line">&lt;ul&gt;</div><div class="line">    &#123;% for comment in comments %&#125;</div><div class="line">        &#123;&#123; macros.render_comment(comment) &#125;&#125;</div><div class="line">    &#123;% endfor %&#125;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
 <p>简直和python的模块使用方法一模一样。</p>
-<p>需要在多处重复使用的模板代码片段可以写入单独的文件，再包含在所有模板中，避免多次键入。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">`&#123;% include &apos;common.html&apos; %&#125;`</div></pre></td></tr></table></figure></p>
+<p>需要在多处重复使用的模板代码片段可以写入单独的文件，再包含在所有模板中，避免多次键入。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% include &apos;common.html&apos; %&#125;</div></pre></td></tr></table></figure></p>
 <p>或者使用继承的方式，类似于类继承。创建一个base.html为基模板。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &#123;% block head %&#125;</div><div class="line">    &lt;title&gt;&#123;% block title %&#125;&#123;% endblock %&#125; - My Application&lt;/title&gt;</div><div class="line">    &#123;% endblock %&#125;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &#123;% block body %&#125;</div><div class="line">    &#123;% endblock %&#125;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 <p>这里面的block定义的标签可以在衍生模板里随意更改。下面是衍生模板举例：</p>
