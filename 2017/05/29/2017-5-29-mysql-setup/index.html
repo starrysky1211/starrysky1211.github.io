@@ -87,22 +87,17 @@
 
 
 
-<meta name="description" content="mysql在mac上的安装记录调试纯纯组长的程序的时候，发现了自己的mysql有问题，于是开始安装mysql-python。pip install MySQL-python==1.2.5。这个命令疯狂报错这个mysql_config看起来是文件找不到，但是其实导致他的原因很多，网上也看到了千奇百怪的解决办法，我算是都试了一个遍，记录一下解决了我问题的步骤吧。
-##1.确保安装了python;%然后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2017-5-29-mysql-setup">
 <meta property="og:url" content="https://starrysky1211.github.io/2017/05/29/2017-5-29-mysql-setup/index.html">
 <meta property="og:site_name" content="猫先生">
-<meta property="og:description" content="mysql在mac上的安装记录调试纯纯组长的程序的时候，发现了自己的mysql有问题，于是开始安装mysql-python。pip install MySQL-python==1.2.5。这个命令疯狂报错这个mysql_config看起来是文件找不到，但是其实导致他的原因很多，网上也看到了千奇百怪的解决办法，我算是都试了一个遍，记录一下解决了我问题的步骤吧。
-##1.确保安装了python;%然后">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-5-31/82048360.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-5-29/38003268.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-5-29/60472523.jpg">
-<meta property="og:updated_time" content="2017-05-29T11:36:39.000Z">
+<meta property="og:updated_time" content="2017-05-31T10:54:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017-5-29-mysql-setup">
-<meta name="twitter:description" content="mysql在mac上的安装记录调试纯纯组长的程序的时候，发现了自己的mysql有问题，于是开始安装mysql-python。pip install MySQL-python==1.2.5。这个命令疯狂报错这个mysql_config看起来是文件找不到，但是其实导致他的原因很多，网上也看到了千奇百怪的解决办法，我算是都试了一个遍，记录一下解决了我问题的步骤吧。
-##1.确保安装了python;%然后">
-<meta name="twitter:image" content="http://onetvn05k.bkt.clouddn.com/17-5-29/38003268.jpg">
+<meta name="twitter:image" content="http://onetvn05k.bkt.clouddn.com/17-5-31/82048360.jpg">
 
 
 
@@ -448,7 +443,8 @@
       
 
       
-        <h1 id="mysql在mac上的安装记录"><a href="#mysql在mac上的安装记录" class="headerlink" title="mysql在mac上的安装记录"></a>mysql在mac上的安装记录</h1><p>调试纯纯组长的程序的时候，发现了自己的mysql有问题，于是开始安装mysql-python。<br><code>pip install MySQL-python==1.2.5</code>。<br>这个命令疯狂报错<br><img src="http://onetvn05k.bkt.clouddn.com/17-5-29/38003268.jpg" alt=""><br>这个mysql_config看起来是文件找不到，但是其实导致他的原因很多，网上也看到了千奇百怪的解决办法，我算是都试了一个遍，记录一下解决了我问题的步骤吧。</p>
+        <p><img src="http://onetvn05k.bkt.clouddn.com/17-5-31/82048360.jpg" alt=""><br><a id="more"></a></p>
+<h1 id="mysql在mac上的安装记录"><a href="#mysql在mac上的安装记录" class="headerlink" title="mysql在mac上的安装记录"></a>mysql在mac上的安装记录</h1><p>调试纯纯组长的程序的时候，发现了自己的mysql有问题，于是开始安装mysql-python。<br><code>pip install MySQL-python==1.2.5</code>。<br>这个命令疯狂报错<br><img src="http://onetvn05k.bkt.clouddn.com/17-5-29/38003268.jpg" alt=""><br>这个mysql_config看起来是文件找不到，但是其实导致他的原因很多，网上也看到了千奇百怪的解决办法，我算是都试了一个遍，记录一下解决了我问题的步骤吧。</p>
 <p>##<br>1.确保安装了python;<br>%然后安装mysql和修改环境变量，由于我不知道那种方法是必须的，我现在把他们全都列出来。<br>2.确保你安装了mysql ,没有安装的话可以在这里下载安装包安装：<a href="https://dev.mysql.com/downloads/connector/python/" target="_blank" rel="external">https://dev.mysql.com/downloads/connector/python/</a><br>3.运行命令修改环境变量：export PATH=$PATH:/usr/local/mysql/bin<br>4.brew install mysql<br>这里会报错<img src="http://onetvn05k.bkt.clouddn.com/17-5-29/60472523.jpg" alt=""><br>5.<code>sudo chmod a+rwx /usr/local/share/man/man8</code> 修改一下权限，然后再<code>brew install mysql</code><br>6.安装MySQL-python:pip install MySQL-python==1.2.5</p>
 <p>这样就成功啦= =</p>
 <blockquote>
