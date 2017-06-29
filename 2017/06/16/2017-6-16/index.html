@@ -91,9 +91,14 @@
 <meta property="og:title" content="周志华《机器学习》读书笔记">
 <meta property="og:url" content="https://starrysky1211.github.io/2017/06/16/2017-6-16/index.html">
 <meta property="og:site_name" content="猫先生">
-<meta property="og:updated_time" content="2017-06-17T01:41:18.000Z">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-6-16/57608266.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/NorddorfPath_ZH-CN10408895135_1920x1080.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-6-29/12687316.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-6-29/34333167.jpg">
+<meta property="og:updated_time" content="2017-06-29T11:41:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="周志华《机器学习》读书笔记">
+<meta name="twitter:image" content="http://onetvn05k.bkt.clouddn.com/17-6-16/57608266.jpg">
 
 
 
@@ -404,7 +409,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  651(字)
+                  948(字)
                 </span>
               
 
@@ -420,7 +425,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  2(分)
+                  3(分)
                 </span>
               
             </div>
@@ -439,7 +444,7 @@
       
 
       
-        <p><a href="http://onetvn05k.bkt.clouddn.com/17-6-16/57608266.jpg" target="_blank" rel="external"></a><br><a id="more"></a></p>
+        <p><img src="http://onetvn05k.bkt.clouddn.com/17-6-16/57608266.jpg" alt=""><br><a id="more"></a></p>
 <blockquote>
 <p>这是用来突破自己莫名的数学恐惧的一次尝试<br>也是进入机器学习领域的第一步<br>希望能够坚持下去  </p>
 </blockquote>
@@ -462,6 +467,28 @@
 <h2 id="第二章-模型评估与选择"><a href="#第二章-模型评估与选择" class="headerlink" title="第二章 模型评估与选择"></a>第二章 模型评估与选择</h2><h3 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h3><p><strong>过拟合</strong>：将训练样本本身的一些特点当作了所有潜在样本的普遍规律，假设变的太过复杂。<br><strong>欠拟合</strong>：对于训练样本的一般性质尚未学好，假设太过简单。</p>
 <p>解决方案：<br>    欠拟合通过在决策树中扩展分枝、在神经网络中增加轮数等可以简单克服。<br>    过拟合比较麻烦，不能避免，只能缓解。</p>
 <h3 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h3><p>对于模型的评估方法需要使用泛化误差（在新样本上的误差）。因此使用一个测试集。以测试误差作为泛化误差的近似。  </p>
+<p>————————</p>
+<blockquote>
+<p>2017/6/29更新   </p>
+</blockquote>
+<p><img src="http://onetvn05k.bkt.clouddn.com/NorddorfPath_ZH-CN10408895135_1920x1080.jpg" alt=""> </p>
+<h4 id="留出法"><a href="#留出法" class="headerlink" title="留出法"></a>留出法</h4><p>即将数据集分成两半分别作为训练集和测试集。</p>
+<p>需要注意的是，单次的留出法获得的结果不够准确，需要多次随机分组，重复评估，取得平均。</p>
+<p>一般将2/3或4／5作为训练集，其余用来测试。</p>
+<h4 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h4><p>k折交叉验证，极限情况k=集合元素数m，称为留一法。</p>
+<p><em>留一法与真实训练集D的训练集相近(只差一)，但是需要训练的模型太多了</em></p>
+<h4 id="自助法"><a href="#自助法" class="headerlink" title="自助法"></a>自助法</h4><p>用于见效样本规模的不同造成的影响，同时还可以高效地进行试验估计。</p>
+<p>多用于初始数据量不够的情况。</p>
+<h4 id="调参与最终模型"><a href="#调参与最终模型" class="headerlink" title="调参与最终模型"></a>调参与最终模型</h4><p>调参要选择步长和范围。</p>
+<p>使用整个训练集进行训练的出的模型才是最终模型。</p>
+<h3 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h3><blockquote>
+<p>衡量模型泛化能力的评价标准。<br>要反映任务需求</p>
+</blockquote>
+<p>回归任务最常用的性能度量是“均方误差”。<br><img src="http://onetvn05k.bkt.clouddn.com/17-6-29/12687316.jpg" alt=""></p>
+<h4 id="错误率与精度"><a href="#错误率与精度" class="headerlink" title="错误率与精度"></a>错误率与精度</h4><blockquote>
+<p>适用于二分类与多分类</p>
+</blockquote>
+<p><img src="http://onetvn05k.bkt.clouddn.com/17-6-29/34333167.jpg" alt=""><br>错误率如上，精度acc为1与错误率的差</p>
 
       
     </div>
@@ -748,7 +775,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经验误差与过拟合"><span class="nav-number">1.2.1.</span> <span class="nav-text">经验误差与过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">评估方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经验误差与过拟合"><span class="nav-number">1.2.1.</span> <span class="nav-text">经验误差与过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#留出法"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自助法"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">自助法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调参与最终模型"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">调参与最终模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能度量"><span class="nav-number">1.2.3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误率与精度"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">错误率与精度</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
