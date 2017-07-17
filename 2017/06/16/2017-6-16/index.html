@@ -95,7 +95,9 @@
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/NorddorfPath_ZH-CN10408895135_1920x1080.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-6-29/12687316.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-6-29/34333167.jpg">
-<meta property="og:updated_time" content="2017-06-29T11:41:35.000Z">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-17/45471397.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-17/99378340.jpg">
+<meta property="og:updated_time" content="2017-07-17T10:25:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="周志华《机器学习》读书笔记">
 <meta name="twitter:image" content="http://onetvn05k.bkt.clouddn.com/17-6-16/57608266.jpg">
@@ -409,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  948(字)
+                  1,658(字)
                 </span>
               
 
@@ -425,7 +427,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  3(分)
+                  6(分)
                 </span>
               
             </div>
@@ -489,6 +491,23 @@
 <p>适用于二分类与多分类</p>
 </blockquote>
 <p><img src="http://onetvn05k.bkt.clouddn.com/17-6-29/34333167.jpg" alt=""><br>错误率如上，精度acc为1与错误率的差</p>
+<hr>
+<p>2017/7/17日更新</p>
+<h4 id="查准率、查全率与F1"><a href="#查准率、查全率与F1" class="headerlink" title="查准率、查全率与F1"></a>查准率、查全率与F1</h4><p>用来度量挑出来的样品中有多少正确目标，或者是正确目标中有多少被挑了出来。这两个参数互相矛盾，一高一低。</p>
+<p>根据学习器的预测结果对样例结果进行排序，从最可能到最不可能，然后按此顺序逐个把样例作为正例进行预测，就能得到一系列的查准(P)查全(R)率，以P为纵轴，R为横轴就能获得P-R曲线。</p>
+<p>如果一个学习器的P-R图被另外一个完全包住，则可以断言后者优于前者。若发生交叉，则只能在具体PR下断言优劣，或者估算曲线包裹面积。</p>
+<p>但是面积不好估算，所以使用<em>平衡点</em>(BEP)作为一个度量，就是P=R时的取值。</p>
+<p>另外一个更常用的是F1度量。<img src="http://onetvn05k.bkt.clouddn.com/17-7-17/45471397.jpg" alt=""></p>
+<p>其中，N为样例总数、TP为真正例(预测结果与实际结果均为正例)、TN为真反例(预测结果和实际结果均为反例)</p>
+<p>F1还有一般形式，用于对查全率和查准率有偏好的情况<img src="http://onetvn05k.bkt.clouddn.com/17-7-17/99378340.jpg" alt=""></p>
+<p>其中β&gt;0，意味着查全率(R)对查准率(P)的相对重要性</p>
+<p>有时会有多个二分类混淆矩阵，即进行了多次训练、测试，每次都会得到一个混淆矩阵；或者在多个数据集上进行了训练或者测试，希望估计其“全局”性能；或者是执行的是多分类任务，每个两两类别的组合都对应一个混淆矩阵等等，因此我们需要在n个二分类混淆矩阵上考察其PR</p>
+<p>有两种做法：</p>
+<p>一、 直接在各个混淆矩阵上分别计算出(P1,R1) (P2,R2)等，再计算平均值，就可以得到宏查准率(macro-P)、宏查全率(macro-R)、宏F1(macro-F1)</p>
+<p>二、 先将各个混淆矩阵的对应元素进行平均，得到TP、FP、TN、FN的平均值，记为$\overline{TP} \overline{FP} \overline{TN} \overline{FN}$ ，再基于这一系列平均值计算出微查准率(micro-P)、微查全率(micro-R)、微F1(micro-F1)</p>
+<h4 id="ROC-与-AUC"><a href="#ROC-与-AUC" class="headerlink" title="ROC 与 AUC"></a>ROC 与 AUC</h4><p>在上节中提到过，我们可以将所有样例按照可能性排序，而分类器就是在其中选取某一点进行截断，前面的是正例，后面的是反例。</p>
+<p>排序本身的质量好坏体现了学习器在不同任务下的“期望泛化性能”的好坏，ROC曲线就是从这个角度研究学习器泛化性能的工具。</p>
+<p>ROC(Receiver Operating Characteristic)“受试者工作特征”，其横轴是“假正例率”(False Positive Rate 简称FPR)，其纵轴为“真正例率”(True Positive Rate 简称TPR)</p>
 
       
     </div>
@@ -775,7 +794,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经验误差与过拟合"><span class="nav-number">1.2.1.</span> <span class="nav-text">经验误差与过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#留出法"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自助法"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">自助法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调参与最终模型"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">调参与最终模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能度量"><span class="nav-number">1.2.3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误率与精度"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">错误率与精度</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经验误差与过拟合"><span class="nav-number">1.2.1.</span> <span class="nav-text">经验误差与过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#留出法"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自助法"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">自助法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调参与最终模型"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">调参与最终模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能度量"><span class="nav-number">1.2.3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误率与精度"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">错误率与精度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查准率、查全率与F1"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">查准率、查全率与F1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROC-与-AUC"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">ROC 与 AUC</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
