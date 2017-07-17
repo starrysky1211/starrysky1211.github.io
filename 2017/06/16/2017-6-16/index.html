@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-17/62380004.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-17/45471397.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-17/99378340.jpg">
-<meta property="og:updated_time" content="2017-07-17T10:27:32.000Z">
+<meta property="og:updated_time" content="2017-07-17T10:28:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="周志华《机器学习》读书笔记">
 <meta name="twitter:image" content="http://onetvn05k.bkt.clouddn.com/17-6-16/57608266.jpg">
@@ -505,7 +505,7 @@
 <p>有时会有多个二分类混淆矩阵，即进行了多次训练、测试，每次都会得到一个混淆矩阵；或者在多个数据集上进行了训练或者测试，希望估计其“全局”性能；或者是执行的是多分类任务，每个两两类别的组合都对应一个混淆矩阵等等，因此我们需要在n个二分类混淆矩阵上考察其PR</p>
 <p>有两种做法：</p>
 <p>一、 直接在各个混淆矩阵上分别计算出(P1,R1) (P2,R2)等，再计算平均值，就可以得到宏查准率(macro-P)、宏查全率(macro-R)、宏F1(macro-F1)</p>
-<p>二、 先将各个混淆矩阵的对应元素进行平均，得到TP、FP、TN、FN的平均值，记为$\overline{TP} \overline{FP} \overline{TN} \overline{FN}$ ，再基于这一系列平均值计算出微查准率(micro-P)、微查全率(micro-R)、微F1(micro-F1)</p>
+<p>二、 先将各个混淆矩阵的对应元素进行平均，得到TP、FP、TN、FN的平均值，记为$\overline{TP} 、\overline{FP} 、\overline{TN} 、\overline{FN}$ ，再基于这一系列平均值计算出微查准率(micro-P)、微查全率(micro-R)、微F1(micro-F1)</p>
 <h4 id="ROC-与-AUC"><a href="#ROC-与-AUC" class="headerlink" title="ROC 与 AUC"></a>ROC 与 AUC</h4><p>在上节中提到过，我们可以将所有样例按照可能性排序，而分类器就是在其中选取某一点进行截断，前面的是正例，后面的是反例。</p>
 <p>排序本身的质量好坏体现了学习器在不同任务下的“期望泛化性能”的好坏，ROC曲线就是从这个角度研究学习器泛化性能的工具。</p>
 <p>ROC(Receiver Operating Characteristic)“受试者工作特征”，其横轴是“假正例率”(False Positive Rate 简称FPR)，其纵轴为“真正例率”(True Positive Rate 简称TPR)</p>
