@@ -98,7 +98,9 @@
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-17/62380004.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-17/45471397.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-17/99378340.jpg">
-<meta property="og:updated_time" content="2017-07-17T10:28:50.000Z">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-19/96488638.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-19/42826574.jpg">
+<meta property="og:updated_time" content="2017-07-19T07:56:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="周志华《机器学习》读书笔记">
 <meta name="twitter:image" content="http://onetvn05k.bkt.clouddn.com/17-6-16/57608266.jpg">
@@ -412,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,658(字)
+                  1,959(字)
                 </span>
               
 
@@ -428,7 +430,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  6(分)
+                  7(分)
                 </span>
               
             </div>
@@ -509,7 +511,18 @@
 <h4 id="ROC-与-AUC"><a href="#ROC-与-AUC" class="headerlink" title="ROC 与 AUC"></a>ROC 与 AUC</h4><p>在上节中提到过，我们可以将所有样例按照可能性排序，而分类器就是在其中选取某一点进行截断，前面的是正例，后面的是反例。</p>
 <p>排序本身的质量好坏体现了学习器在不同任务下的“期望泛化性能”的好坏，ROC曲线就是从这个角度研究学习器泛化性能的工具。</p>
 <p>ROC(Receiver Operating Characteristic)“受试者工作特征”，其横轴是“假正例率”(False Positive Rate 简称FPR)，其纵轴为“真正例率”(True Positive Rate 简称TPR)</p>
-
+<hr>
+<p>2017/7/19日更新<br><img src="http://onetvn05k.bkt.clouddn.com/17-7-19/96488638.jpg" alt=""></p>
+<p>AUC是指ROC曲线所包围的面积，可通过积分方法求得。与排序误差有着紧密的联系。给定$m^{+}$个正例和$m^{-}$个反例，令$D^{+}、D^{-}$分别代表正反例集合，则排序损失定义为<br><img src="http://onetvn05k.bkt.clouddn.com/17-7-19/42826574.jpg" alt=""></p>
+<p>上式的意义是考虑每一对正反例，若正例的预测值小于反例则罚一分、若相等则罚0.5分，则可以看出其恰好对应ROC曲线上方的面积，因此与AUC相加应等于1。</p>
+<h4 id="代价敏感错误率与代价曲线"><a href="#代价敏感错误率与代价曲线" class="headerlink" title="代价敏感错误率与代价曲线"></a>代价敏感错误率与代价曲线</h4><p>这个评价标准是因为不同类型的错误造成的后果不同，具有非均等代价</p>
+<p>我们设定一个代价矩阵，其中$cost_{ij}$代表将第i类错判成第j类的代价。则有以下评价标准——最小化错误代价。</p>
+<p>通过绘制代价曲线可得。</p>
+<h3 id="比较检验"><a href="#比较检验" class="headerlink" title="比较检验"></a>比较检验</h3><blockquote>
+<p>是在使用某种实验评估方法测得学习器的某个性能度量结果，然后相互之间进行比较，来获取最优性能的学习器</p>
+</blockquote>
+<p>统计假设检验，默认以错误率进行性能度量</p>
+<h4 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h4>
       
     </div>
 
@@ -795,7 +808,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经验误差与过拟合"><span class="nav-number">1.2.1.</span> <span class="nav-text">经验误差与过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#留出法"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自助法"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">自助法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调参与最终模型"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">调参与最终模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能度量"><span class="nav-number">1.2.3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误率与精度"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">错误率与精度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查准率、查全率与F1"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">查准率、查全率与F1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROC-与-AUC"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">ROC 与 AUC</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经验误差与过拟合"><span class="nav-number">1.2.1.</span> <span class="nav-text">经验误差与过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#留出法"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自助法"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">自助法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调参与最终模型"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">调参与最终模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能度量"><span class="nav-number">1.2.3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误率与精度"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">错误率与精度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查准率、查全率与F1"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">查准率、查全率与F1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROC-与-AUC"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">ROC 与 AUC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代价敏感错误率与代价曲线"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">代价敏感错误率与代价曲线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较检验"><span class="nav-number">1.2.4.</span> <span class="nav-text">比较检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#假设检验"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">假设检验</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
