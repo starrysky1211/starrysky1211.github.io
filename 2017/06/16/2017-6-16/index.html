@@ -101,7 +101,8 @@
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-19/96488638.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-19/42826574.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-19/42800695.jpg">
-<meta property="og:updated_time" content="2017-07-19T09:09:21.000Z">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-19/15150052.jpg">
+<meta property="og:updated_time" content="2017-07-19T11:29:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="周志华《机器学习》读书笔记">
 <meta name="twitter:image" content="http://onetvn05k.bkt.clouddn.com/17-6-16/57608266.jpg">
@@ -415,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,074(字)
+                  2,609(字)
                 </span>
               
 
@@ -431,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  7(分)
+                  9(分)
                 </span>
               
             </div>
@@ -525,6 +526,15 @@
 <p>统计假设检验，默认以错误率进行性能度量</p>
 <h4 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h4><p>使用二项检验对假设“$\epsilon \leqslant \epsilon _{0}$”进行检验，在1-α的概率内所能观测到的最大错误率如下式(1-α反映的是置信度)：<br><img src="http://onetvn05k.bkt.clouddn.com/17-7-19/42800695.jpg" alt=""><br>其中s.t.意为左面式子在右边条件满足时成立。</p>
 <p>所以若测试错误率$\hat{\epsilon }$小于临界值$\bar{\epsilon }$则可以认为能以1-α的置信度认为学习器的泛化错误率不大于$\epsilon _{0}$。</p>
+<p>若使用多次重复留出法或者是交叉验证法进行估计，会获得多个测试错误率，这时可使用 <em>t检验</em>，先计算出平均错误率μ和方差$\sigma ^{2}$，考虑到这k个错误率可以看成是泛化错误率的独立采样，所以变量$\tau _{t}$应服从自由度为k-1的t分布。<br><img src="http://onetvn05k.bkt.clouddn.com/17-7-19/15150052.jpg" alt=""></p>
+<p>对于假设“$\mu = \epsilon <em>{0}$”和显著度α，我们可以计算出在1-α概率内能观测到的最大错误率，也就是临界值。这里考虑双边假设，若μ和$\epsilon </em>{0}$的差$\left | \mu -\epsilon <em>{0} \right |$位于临界值范围$\left [ t</em>{-\alpha /2},t<em>{\alpha/2} \right ]$之间，则可以认为泛化错误率为$\epsilon </em>{0}$，置信度为1-α。</p>
+<h4 id="交叉验证t检验"><a href="#交叉验证t检验" class="headerlink" title="交叉验证t检验"></a>交叉验证t检验</h4><blockquote>
+<p>上述方法只能对单个学习器进行检验，如果需要对不同学习器进行比较，可以使用这种。</p>
+</blockquote>
+<p>使用k折交叉验证法对A、B两个学习器进行测试，使用“成对t检验”来进行验证，其基本思想是若两个学习器的性能相同则在第i折的测试错误率应当相等，即$\epsilon <em>{i}^{A} = \epsilon </em>{i}^{B}$。</p>
+<p>对两个不同学习器在k折中的每一对结果做差，若性能相同，则差值均值应当为零，所以，对“学习器A和B性能相同”这个假设进行t检验，就可以看出两个学习器是否有显著的性能差异。</p>
+<p>通常情况下，由于样本有限，导致不同轮次的训练集会有重叠，因此错误率并不独立。使用“5X2交叉验证”进行缓解。</p>
+<p>具体操作是： 进行5次2折交叉验证，在每次2折后随机将数据打乱，使得5次的划分不重复。为了缓解测试错误率的非独立性，我们进计算第一次2折交叉验证的两个结果的平均值，但是对5次的2折交叉验证均计算出其方差。服从自由度为5的t分布进行验证。</p>
 
       
     </div>
@@ -811,7 +821,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经验误差与过拟合"><span class="nav-number">1.2.1.</span> <span class="nav-text">经验误差与过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#留出法"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自助法"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">自助法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调参与最终模型"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">调参与最终模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能度量"><span class="nav-number">1.2.3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误率与精度"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">错误率与精度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查准率、查全率与F1"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">查准率、查全率与F1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROC-与-AUC"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">ROC 与 AUC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代价敏感错误率与代价曲线"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">代价敏感错误率与代价曲线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较检验"><span class="nav-number">1.2.4.</span> <span class="nav-text">比较检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#假设检验"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">假设检验</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经验误差与过拟合"><span class="nav-number">1.2.1.</span> <span class="nav-text">经验误差与过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#留出法"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自助法"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">自助法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调参与最终模型"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">调参与最终模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能度量"><span class="nav-number">1.2.3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误率与精度"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">错误率与精度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查准率、查全率与F1"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">查准率、查全率与F1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROC-与-AUC"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">ROC 与 AUC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代价敏感错误率与代价曲线"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">代价敏感错误率与代价曲线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较检验"><span class="nav-number">1.2.4.</span> <span class="nav-text">比较检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#假设检验"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">假设检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证t检验"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">交叉验证t检验</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
