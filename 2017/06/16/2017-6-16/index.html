@@ -102,7 +102,12 @@
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-19/42826574.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-19/42800695.jpg">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-19/15150052.jpg">
-<meta property="og:updated_time" content="2017-07-19T11:29:32.000Z">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-20/48728430.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-20/32348357.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-20/71585584.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-20/39366947.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-20/29717951.jpg">
+<meta property="og:updated_time" content="2017-07-20T02:55:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="周志华《机器学习》读书笔记">
 <meta name="twitter:image" content="http://onetvn05k.bkt.clouddn.com/17-6-16/57608266.jpg">
@@ -416,7 +421,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,609(字)
+                  3,469(字)
                 </span>
               
 
@@ -432,7 +437,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  9(分)
+                  13(分)
                 </span>
               
             </div>
@@ -535,6 +540,63 @@
 <p>对两个不同学习器在k折中的每一对结果做差，若性能相同，则差值均值应当为零，所以，对“学习器A和B性能相同”这个假设进行t检验，就可以看出两个学习器是否有显著的性能差异。</p>
 <p>通常情况下，由于样本有限，导致不同轮次的训练集会有重叠，因此错误率并不独立。使用“5X2交叉验证”进行缓解。</p>
 <p>具体操作是： 进行5次2折交叉验证，在每次2折后随机将数据打乱，使得5次的划分不重复。为了缓解测试错误率的非独立性，我们进计算第一次2折交叉验证的两个结果的平均值，但是对5次的2折交叉验证均计算出其方差。服从自由度为5的t分布进行验证。</p>
+<hr>
+<p>2017/7/20日更新<br><img src="http://onetvn05k.bkt.clouddn.com/17-7-20/48728430.jpg" alt=""></p>
+<h4 id="McNemar检验"><a href="#McNemar检验" class="headerlink" title="McNemar检验"></a>McNemar检验</h4><p>对于二分类问题，使用留出法还能获得两个学习器分类结果的差别</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">算法A</th>
+<th style="text-align:right">算法A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>算法B</td>
+<td style="text-align:center">正确</td>
+<td style="text-align:right">错误</td>
+</tr>
+<tr>
+<td>正确</td>
+<td style="text-align:center">$e_{00}$</td>
+<td style="text-align:right">$e_{01}$</td>
+</tr>
+<tr>
+<td>错误</td>
+<td style="text-align:center">$e_{10}$</td>
+<td style="text-align:right">$e_{11}$</td>
+</tr>
+</tbody>
+</table>
+<p>若性能相同，则应有$a=\left |e<em>{01}-e</em>{10} \right |=0$，因此变量a应服从正态分布，McNemar检验考虑变量如下式：</p>
+<p><img src="http://onetvn05k.bkt.clouddn.com/17-7-20/32348357.jpg" alt=""></p>
+<p>服从自由度为1的$\chi ^{2}$分布，即标准正态分布变量的平方。给定显著度α，当上式中变量值小于临界值$\chi _{\alpha }^{2}$时，不能拒绝假设。</p>
+<h4 id="Friedman检验与Nemenyi后续检验"><a href="#Friedman检验与Nemenyi后续检验" class="headerlink" title="Friedman检验与Nemenyi后续检验"></a>Friedman检验与Nemenyi后续检验</h4><blockquote>
+<p>交叉验证t检验和McNemar检验都是在一个数据集上比较两个算法的性能，但是在很多时候，我们需要的是在一组数据集上比较多个算法。一种方法是两两检验，进行排序，另一种方法比较直接——<strong>使用基于算法排序的Friedman检验</strong></p>
+</blockquote>
+<p>假定使用$D<em>{1}、D</em>{2}、D<em>{3}、D</em>{4}$四个数据集对算法A、B、C进行比较。首先，使用留出法或者交叉验证法获得每个算法在每个数据集上的结果，然后在每个数据集上排序，并赋序值，若性能相同则平分序值。然后对每个算法在所有数据集上的表现求平均得到平均序值。然后使用Friedman检验来判断这些算法的性能是否都相同。事实上，若性能相同，则平均序值应当相同。</p>
+<p>假设我们在N个数据集上比较k个算法，那么用$r_{i}$表示第i个算法的平均序值，暂不考虑平分序值的情况，有下式：<br><img src="http://onetvn05k.bkt.clouddn.com/17-7-20/71585584.jpg" alt=""><br><img src="http://onetvn05k.bkt.clouddn.com/17-7-20/39366947.jpg" alt=""></p>
+<p>$\tau _{F}$服从自由度为k-1和(k-1)(N-1)的F分布</p>
+<p>若“所有算法性能相同”这一假设被否定，则进行后续检验进行区分，常用的有<strong>Nemenyi后续检验</strong></p>
+<p>计算出平均序值差别的临界值域<br><img src="http://onetvn05k.bkt.clouddn.com/17-7-20/29717951.jpg" alt=""><br>其中$q_{\alpha }$是Tukey分布的临界值，可查表得。</p>
+<p>若平均序值差超出了临界值CD，则拒绝性能相同的假设。</p>
+<p>可用Friedman检验图来进行快速判断。</p>
+<h3 id="偏差与方差"><a href="#偏差与方差" class="headerlink" title="偏差与方差"></a>偏差与方差</h3><p>“偏差-方差分解”是解释学习算法泛化性能的重要工具。</p>
+<p>来自相同分布的不同训练集对一个算法的训练结果很可能会有差异。对测试样本x，令$y_{D}$为x在数据集中的标记，y为x的真实标记，f(x;D)为训练集D上学得模型在x上的预测输出，以回归任务为例，期望预测为：</p>
+<p>$\bar{f}(x)=\mathbb{E}_{D}\left [ f(x;D) \right ]  $</p>
+<p>使用样本数相同的不同训练集产生的方差为：</p>
+<p>$var(x)=\mathbb{E}_{D}\left [ (f(x;D)-\bar{f}(x))^{2} \right ]$</p>
+<p>噪声为：$\varepsilon ^{2}=\mathbb{E}<em>{D}\left [ (y</em>{D}-y)^{2} \right ]$</p>
+<p>期望输出与真实标记的差别即为偏差(bias)：</p>
+<p>$bias^{2}(x)=(\bar{f}(x)-y)^{2}$</p>
+<p>假定噪声期望为0，可对E(f;D)进行分解得到偏差、方差与噪声之和：</p>
+<p>$E(f;D)=bias^{2}(x)+var(x)+\varepsilon ^{2}$</p>
+<blockquote>
+<p>偏差代表学习算法的拟合能力、方差代表了数据扰动带来的影响、噪声代表着学习问题本身的难度</p>
+</blockquote>
+<hr>
+<p>前章到此结束，从第三章开始单开一节，传送门：</p>
 
       
     </div>
@@ -821,7 +883,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经验误差与过拟合"><span class="nav-number">1.2.1.</span> <span class="nav-text">经验误差与过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#留出法"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自助法"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">自助法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调参与最终模型"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">调参与最终模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能度量"><span class="nav-number">1.2.3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误率与精度"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">错误率与精度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查准率、查全率与F1"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">查准率、查全率与F1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROC-与-AUC"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">ROC 与 AUC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代价敏感错误率与代价曲线"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">代价敏感错误率与代价曲线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较检验"><span class="nav-number">1.2.4.</span> <span class="nav-text">比较检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#假设检验"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">假设检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证t检验"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">交叉验证t检验</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《机器学习》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-模型评估与选择"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经验误差与过拟合"><span class="nav-number">1.2.1.</span> <span class="nav-text">经验误差与过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#留出法"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自助法"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">自助法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调参与最终模型"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">调参与最终模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能度量"><span class="nav-number">1.2.3.</span> <span class="nav-text">性能度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误率与精度"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">错误率与精度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查准率、查全率与F1"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">查准率、查全率与F1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROC-与-AUC"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">ROC 与 AUC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代价敏感错误率与代价曲线"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">代价敏感错误率与代价曲线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较检验"><span class="nav-number">1.2.4.</span> <span class="nav-text">比较检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#假设检验"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">假设检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证t检验"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">交叉验证t检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#McNemar检验"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">McNemar检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Friedman检验与Nemenyi后续检验"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">Friedman检验与Nemenyi后续检验</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏差与方差"><span class="nav-number">1.2.5.</span> <span class="nav-text">偏差与方差</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
