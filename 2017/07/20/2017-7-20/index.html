@@ -92,7 +92,15 @@
 <meta property="og:url" content="https://starrysky1211.github.io/2017/07/20/2017-7-20/index.html">
 <meta property="og:site_name" content="猫先生">
 <meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-20/48728430.jpg">
-<meta property="og:updated_time" content="2017-07-20T03:09:30.000Z">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-21/11520234.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-21/85016460.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-21/57428666.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-21/52490544.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-21/22724877.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-21/69061763.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-21/97277081.jpg">
+<meta property="og:image" content="http://onetvn05k.bkt.clouddn.com/17-7-21/34671980.jpg">
+<meta property="og:updated_time" content="2017-07-21T11:54:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="周志华《机器学习》读书笔记第三章">
 <meta name="twitter:image" content="http://onetvn05k.bkt.clouddn.com/17-7-20/48728430.jpg">
@@ -406,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  61(字)
+                  483(字)
                 </span>
               
 
@@ -422,7 +430,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  1(分)
+                  2(分)
                 </span>
               
             </div>
@@ -446,7 +454,28 @@
 <p>开始进入模型部分啦，终于脱离无数的检验方法了<br>果然，西瓜书不适合入门啊= =</p>
 </blockquote>
 <p>前情提要：<br><a href="https://starrysky1211.github.io/2017/06/16/2017-6-16/#more">周志华《机器学习》读书笔记一、二章</a></p>
-<h2 id="第三章-线性模型"><a href="#第三章-线性模型" class="headerlink" title="第三章 线性模型"></a>第三章 线性模型</h2><h3 id="基本形式"><a href="#基本形式" class="headerlink" title="基本形式"></a>基本形式</h3>
+<h2 id="第三章-线性模型"><a href="#第三章-线性模型" class="headerlink" title="第三章 线性模型"></a>第三章 线性模型</h2><h3 id="基本形式"><a href="#基本形式" class="headerlink" title="基本形式"></a>基本形式</h3><p>2017/7/21日更新<br><img src="http://onetvn05k.bkt.clouddn.com/17-7-21/11520234.jpg" alt=""></p>
+<hr>
+<p>示例x有d个属性，其中$x_{i}$代表着其第i个属性的取值。线性模型就是试图学得一个各个属性的线性组合达到预测的函数。</p>
+<p><img src="http://onetvn05k.bkt.clouddn.com/17-7-21/85016460.jpg" alt=""></p>
+<p>使用向量形式：</p>
+<p><img src="http://onetvn05k.bkt.clouddn.com/17-7-21/57428666.jpg" alt=""></p>
+<p>其中ω和b确定后，模型就确定了。</p>
+<p>许多非线性模型实在线性模型的基础上引入层级结构和高维映射得到的。</p>
+<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>给定数据集D={(x1,y1),(x2,y2),…,(xm,ym)}，其中xi=(xi1;xi2;…;xid),yi在实数域中。</p>
+<p>对于自身有序的属性，如高中低等，应通过连续化转化成连续值{1.0;0.5;0.0}这样，但是对于本身并无序列的属性如红黄绿等，应当使用向量表示。</p>
+<p>确定ω和b最主要的是衡量f(x)和y之间的差别。我们试图让均方误差最小化。也即是试图使得所有样本到拟合直线上的欧氏距离最短。(最小二乘法)</p>
+<p>最小二乘估计——对ω和b分别求偏导得0，解方程组即可。</p>
+<p>更一般的多元线性回归<img src="http://onetvn05k.bkt.clouddn.com/17-7-21/52490544.jpg" alt=""></p>
+<p>其中<img src="http://onetvn05k.bkt.clouddn.com/17-7-21/22724877.jpg" alt=""></p>
+<p><img src="http://onetvn05k.bkt.clouddn.com/17-7-21/69061763.jpg" alt=""></p>
+<p>令<img src="http://onetvn05k.bkt.clouddn.com/17-7-21/97277081.jpg" alt=""></p>
+<p>则对$\hat{\omega }$求导为零得到闭式解。</p>
+<p>当$X^{T}X$为满秩矩阵或正定矩阵时，有唯一解。</p>
+<p>若变量数超过样例数导致其不满秩不正定，有多个解。选择哪一个取决于学习算法的偏好，这时应当引入正则化项。</p>
+<p>线性模型简单而富有变化。考虑单调可微函数g(.)，令<img src="http://onetvn05k.bkt.clouddn.com/17-7-21/34671980.jpg" alt=""></p>
+<p>则这个模型就是广义线性模型，是输入空间到输出空间的映射。g(.)称为联系函数。</p>
+
       
     </div>
 
@@ -732,7 +761,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章-线性模型"><span class="nav-number">1.</span> <span class="nav-text">第三章 线性模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本形式"><span class="nav-number">1.1.</span> <span class="nav-text">基本形式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章-线性模型"><span class="nav-number">1.</span> <span class="nav-text">第三章 线性模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本形式"><span class="nav-number">1.1.</span> <span class="nav-text">基本形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性回归"><span class="nav-number">1.2.</span> <span class="nav-text">线性回归</span></a></li></ol></li></ol></div>
             
 
           </div>
